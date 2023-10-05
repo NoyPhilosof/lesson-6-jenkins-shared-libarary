@@ -1,10 +1,10 @@
-def call(String image, String command = 'cat', Closure body) {
+def call(String container_name, String image, String command = 'cat', Closure body) {
     def randomLabel = "pod-${UUID.randomUUID().toString()}"
     podTemplate(
         label: randomLabel,
         containers: [
             containerTemplate(
-                name: 'maven',
+                name: container_name,
                 image: image,
                 ttyEnabled: true,
                 command: command
