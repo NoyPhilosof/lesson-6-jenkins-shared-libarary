@@ -4,12 +4,15 @@ def call(String image, String command = 'cat', Closure body) {
         label: randomLabel,
         containers: [
             containerTemplate(
-                name: 'container',
+                name: 'maven',
                 image: image,
                 ttyEnabled: true,
                 command: command
             )
-        ],
-        body
-    )
+        ]
+    ) {
+        node(randomLabel) {
+            body.call()
+        }
+    }
 }
