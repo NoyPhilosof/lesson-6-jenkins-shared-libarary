@@ -7,7 +7,6 @@ def call(String image, String shCommand, Closure body = null) {
                 name: 'container',
                 image: image,
                 ttyEnabled: true,
-                command: 'cat'
             )
         ]
     ) {
